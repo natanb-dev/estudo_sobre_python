@@ -18,7 +18,7 @@ def criar_tabela():
     conexao.commit()
     conexao.close()
 
-def salvar_notas(ra, nome, av1, av2, av3, avd, avds):
+def salvar_notas_banco(ra, nome, av1, av2, av3, avd, avds):
     # Salva as notas no banco de dados SQLite
     conexao = sqlite3.connect('notas.db')
     cursor = conexao.cursor()
@@ -29,7 +29,7 @@ def salvar_notas(ra, nome, av1, av2, av3, avd, avds):
     conexao.commit()
     conexao.close()
 
-def obter_ultimas_notas():
+def obter_ultimas_notas_arquivo():
     # Obtém as últimas notas salvas no arquivo TXT
     try:
         with open('ultimas_notas.txt', 'r') as arquivo:
@@ -38,7 +38,7 @@ def obter_ultimas_notas():
     except FileNotFoundError:
         return None
 
-def salvar_ultimas_notas(av1, av2, av3, avd, avds):
+def salvar_ultimas_notas_arquivo(av1, av2, av3, avd, avds):
     # Salva as últimas notas no arquivo TXT
     with open('ultimas_notas.txt', 'w') as arquivo:
         arquivo.write(f'{av1}\n{av2}\n{av3}\n{avd}\n{avds}')
@@ -79,7 +79,7 @@ def iniciar_programa():
             nome = input("Digite o nome do aluno: ")
 
             # Obtém as últimas notas digitadas
-            ultimas_notas = obter_ultimas_notas()
+            ultimas_notas = obter_ultimas_notas_arquivo()
 
             if ultimas_notas:
                 av1, av2, av3, avd, avds = ultimas_notas
@@ -91,7 +91,7 @@ def iniciar_programa():
                 avds = float(input("Digite a nota da AVDS: "))
 
                 # Salva as últimas notas digitadas
-                salvar_ultimas_notas(av1, av2, av3, avd, avds)
+                salvar_ultimas_notas_arquivo(av1, av2, av3, avd, avds)
 
             # Calcula a Média Final
             media_final = calcular_media_final(av1, av2, av3, avd, avds)
@@ -103,7 +103,7 @@ def iniciar_programa():
             print(f"Resultado: {resultado}")
 
             # Salva as notas no banco de dados
-            salvar_notas(ra, nome, av1, av2, av3, avd, avds)
+            salvar_notas_banco(ra, nome, av1, av2, av3, avd, avds)
 
         elif opcao == '0':
             print("Programa encerrado.")
