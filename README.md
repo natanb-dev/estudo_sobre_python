@@ -1,8 +1,9 @@
 # lista_de_exercicios_python
 
 ## Estilização: 
-    folder: calculos
-        nenhum está completamente estilizado
+folder: calculos
+
+nenhum está completamente estilizado
 
 ## Pastas: 
 
