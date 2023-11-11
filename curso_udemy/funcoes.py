@@ -68,10 +68,12 @@ amostrar()
 
 
 
-#Passando, através da própria função, argumentos que fazem com que o código ali embutido possa ser personalizado
+#Passando, através da própria função, argumentos que fazem com que o código ali embutido
+# possa ser personalizado
 
 
-#Passando, através da própria função, argumentos que fazem com que o código ali embutido possa ser personalizado
+#Passando, através da própria função, argumentos que fazem com que o código
+#  ali embutido possa ser personalizado
 
 
 
